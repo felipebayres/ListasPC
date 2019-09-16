@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+#include <functional>
+#define pb push_back
+using namespace std;
+
+int main()
+{
+    queue <int> Fila;
+    int N,M = 1,aux,aux2;
+    scanf("%d",&N);
+    while(1){
+        for (int i = 1 ; i <= N ; i++){
+            Fila.push(i);
+        }
+        //cout << "M =" << M << " :";
+        while(!Fila.empty()){
+            for(int i = 0; i < M; i++){
+                aux = Fila.front();
+               
+                if ( i == 0 && !Fila.empty()){
+                    Fila.pop();
+                    //cout << aux << " ";
+                }
+                if( i != 0 && !Fila.empty())
+                {
+                    Fila.pop();
+                    Fila.push(aux);
+                }    
+            }
+            aux2 = Fila.front();
+            if (aux2 == 13 && Fila.size() == 1){
+                cout << M;
+                return 0;
+            }
+             
+        }
+    //cout << "\n";
+    M++;
+    }
+    return 0; 
+
+}
